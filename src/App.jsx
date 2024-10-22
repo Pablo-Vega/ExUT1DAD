@@ -1,74 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
+import './components/Noticia'
+import  {Grid2}  from '@mui/material';
+import Noticia from './components/Noticia';
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
-/*
-import './App.css';
-import { useState } from 'react';
-import { CustomButton } from "milibreria";
-
-function App() {
-  const [count, setCount] = useState(0); 
-
-  const datos = {
-    animal: 'animal',
-    imagenUrl: '/perro.jpg',
-    imagenSize: 150,
-  };
-
-  function handleClick() {
-    setCount(count + 1); 
-  }
+const App = () => {
+  const noticiaData = [
+    {
+      id: 1,
+      title: 'Titulo 1',
+      Date: '19 de octubre de 2024',
+      imageUrl: 'sky.jpg',
+      altText: '',
+    },
+    {
+      id: 2,
+      title: 'Titulo 2',
+      Date: '19 de octubre de 2024',
+      imageUrl: 'sea.jpg',
+      altText: '',
+    },
+    {
+      id: 3,
+      title: 'Titulo 3 ',
+      Date: '19 de octubre de 2024',
+      imageUrl: 'tux.jpg',
+      altText: '',
+    },
+    {
+      id: 4,
+      title: 'Titulo 4',
+      Date: '19 de octubre de 2024',
+      imageUrl: 'mario.jpg',
+      altText: '',
+    },
+  ];
 
   return (
-    <>
-      <h1>Soy un {datos.animal} y vivo feliz</h1>
-      <img
-        className='avatar'
-        src={datos.imagenUrl}
-        alt='img'
-        style={{ width: datos.imagenSize, height: datos.imagenSize }}
-      />
-      
-      <CustomButton
-        text={`Me picastes ${count} veces`}                        
-        size="medium"                      
-        onClick={handleClick}              
-      />
-    </>
+    <div>
+      <Grid2 container spacing={2} justifyContent="center">
+        {noticiaData.map((noticia) => (
+          <Grid2 item xs={12} sm={6} md={4} key={noticia.id}>
+            <Noticia
+              title={noticia.title}
+              Date={noticia.Date}
+              imageUrl={noticia.imageUrl}
+              altText={noticia.altText}
+            />
+          </Grid2>
+        ))}
+      </Grid2>
+    </div>
   );
-}
+};
+
 
 export default App;
-*/
